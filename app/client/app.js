@@ -29,9 +29,9 @@
 			var todo = this._object;
 			return this.flag('completed',(todo.completed)).setChildren(Imba.static([
 				(t0 = this.$a || (this.$a = t$('div').flag('view'))).setContent(Imba.static([
-					(t0.$$a = t0.$$a || t$('label').setHandler('dblclick','edit')).setText(("" + (todo.title))).end(),
-					(this._toggle = this._toggle || t$('input').setRef('toggle',this).setType('checkbox').setHandler('change','toggle')).setChecked((todo.completed)).end(),
-					(t0.$$c = t0.$$c || t$('button').flag('destroy').setHandler('tap','drop')).end()
+					(t0.$$a = t0.$$a || t$('label').setHandler('dblclick','edit',this)).setText(("" + (todo.title))).end(),
+					(this._toggle = this._toggle || t$('input').setRef('toggle',this).setType('checkbox').setHandler('change','toggle',this)).setChecked((todo.completed)).end(),
+					(t0.$$c = t0.$$c || t$('button').flag('destroy').setHandler('tap','drop',this)).end()
 				],1)).end(),
 				(this._input = this._input || t$('input').setRef('input',this).flag('edit').setType('text')).end()
 			],1)).synced();
@@ -162,14 +162,14 @@
 				
 				(all.length > 0) && (Imba.static([
 					(t0 = self.$b || (self.$b = t$('section').flag('main'))).setContent(Imba.static([
-						(t0.$$a = t0.$$a || t$('input').flag('toggle-all').setType('checkbox').setHandler('change','toggleAll')).end(),
-						(t1 = t0.$$b || (t0.$$b = t$('ul').flag('todo-list'))).setContent(Imba.static([(function(t1) {
+						(t0.$$a = t0.$$a || t$('input').flag('toggle-all').setType('checkbox').setHandler('change','toggleAll',this)).end(),
+						(t1 = t0.$$b || (t0.$$b = t$('ul').flag('todo-list'))).setContent((function(t1) {
 							for (var i=0, ary=iter$(items), len=ary.length, todo, res=[]; i < len; i++) {
 								todo = ary[i];
 								res.push((t1['_' + todo._id] = t1['_' + todo._id] || t$('todo')).setObject(todo).end());
 							};
 							return res;
-						})(t1)],1)).end()
+						})(t1)).end()
 					],1)).end(),
 					
 					(t0 = self.$c || (self.$c = t$('footer').flag('footer'))).setContent(Imba.static([
@@ -179,13 +179,13 @@
 						],1)).end(),
 						
 						(t1 = t0.$$b || (t0.$$b = t$('ul').flag('filters'))).setContent(Imba.static([
-							(t2 = t1.$$a || (t1.$$a = t$('li'))).setContent(Imba.static([(t2.$$a = t2.$$a || t$('a').setHref('#/')).flag('selected',(items == all)).setText('All').end()],1)).end(),
-							(t2 = t1.$$b || (t1.$$b = t$('li'))).setContent(Imba.static([(t2.$$a = t2.$$a || t$('a').setHref('#/active')).flag('selected',(items == active)).setText('Active').end()],1)).end(),
-							(t2 = t1.$$c || (t1.$$c = t$('li'))).setContent(Imba.static([(t2.$$a = t2.$$a || t$('a').setHref('#/completed')).flag('selected',(items == done)).setText('Completed').end()],1)).end()
+							(t2 = t1.$$a || (t1.$$a = t$('li'))).setContent((t2.$$a = t2.$$a || t$('a').setHref('#/')).flag('selected',(items == all)).setText('All').end()).end(),
+							(t2 = t1.$$b || (t1.$$b = t$('li'))).setContent((t2.$$a = t2.$$a || t$('a').setHref('#/active')).flag('selected',(items == active)).setText('Active').end()).end(),
+							(t2 = t1.$$c || (t1.$$c = t$('li'))).setContent((t2.$$a = t2.$$a || t$('a').setHref('#/completed')).flag('selected',(items == done)).setText('Completed').end()).end()
 						],1)).end(),
 						
 						(done.length > 0) && (
-							(t0.$$c = t0.$$c || t$('button').flag('clear-completed').setHandler('tap','clear')).setText('Clear completed').end()
+							(t0.$$c = t0.$$c || t$('button').flag('clear-completed').setHandler('tap','clear',self)).setText('Clear completed').end()
 						)
 					],1)).end()
 				],2))
