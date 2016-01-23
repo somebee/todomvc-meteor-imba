@@ -1,0 +1,12 @@
+{
+  "name": "todomvc-meteor-imba",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "build": "imba compile src/ -o app/",
+    "watch": "imba watch src/ -o app/"
+  },
+  "dependencies": {
+    "imba": "^0.14.3"
+  }
+}
